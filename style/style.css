@@ -1,0 +1,54 @@
+#contact {
+    margin-top: 2rem;
+    border-radius: 5px;
+      text-align: center;
+      background-color: #ee9f0c;
+      color: white;
+    }
+    #contact h1 {
+      text-align: center;
+      color: white;
+    }
+    .own{
+      width: 100%;
+      height: 250px;
+    }
+  .caro{
+    width: 100%;
+    height: 350px;
+  }
+
+  .own_contianer{
+    margin: 2rem 0rem;
+
+    /* background-color: #ae9b78; */
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+   
+  
+  
+/*     
+    @media only screen and (min-width: 768px) and (max-width: 979px) {
+      .row-cols-md-2 {
+                
+                      }
+
+                      .own{
+                        display:none;
+                      }
+      } */
+  
+      @media only screen and (max-width:480px){
+                        .own{
+                          display:none;
+                        }
+        }
+    
+  
