@@ -106,7 +106,7 @@
     // ----------------------3 objects from Locations---------------------
 
 
-    new Locations("place","turkish mosque ","turkey","The Hagia Sophia has just opened to receive Sunni Muslim worshippers for the first time since 1931.",34122,"Sultan Ahmet, Atmeydan","../img/places1.jpg",new Date("Fri Dec 18 2015 10:40:57"));
+    new Locations("place","turkish mosque ","turkey","The Hagia Sophia has just opened to receive Sunni Muslim worshippers for the first time since 1931.",34122,"Sultan Ahmet, Atmeydan","../img/places1.jpg",new Date("Fri Jan 18 2015 13:30:50"));
     // console.log(myTravels)
     new Locations("place","Eiffel Tower","Paris","The Eiffel Tower is 1,063 feet (324 meters) tall, including the antenna at the top. Without the antenna, it is 984 feet 300 m.",75007,"Champ de Mars, 5 Avenue Anatole France","../img/places3.jpg",new Date("Fri Jan 08 2013 12:44:57"));
 
@@ -234,7 +234,8 @@
              var d:any= new Date(b.event_date);
              return c - d;
          });
-        
+    
+         console.log(myTravels);
 
         var content:string="";
         myTravels.forEach(travel=>content+=createCard(travel));
@@ -300,11 +301,16 @@
 
              if (newMyTravels==""){
                 document.querySelector(`[data-meta="entry"]`).innerHTML="";
-                document.getElementById("contact").innerHTML=`<h1>Sorry nothing Found !</h1>`;
+                
+                document.getElementById("error").innerHTML=`<h1>Sorry nothing Found !</h1>`;
+
                 }else{
                 var content:string="";
+                document.getElementById("error").innerHTML="";
+
                 newMyTravels.forEach(travel=>content+=createCard(travel));
                 document.querySelector(`[data-meta="entry"]`).innerHTML=content;
+                // document.getElementById("contact").innerHTML;
 
                 myAllFunc();
 

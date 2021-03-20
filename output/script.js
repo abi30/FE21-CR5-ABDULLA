@@ -77,7 +77,7 @@ var Events = /** @class */ (function (_super) {
     return Events;
 }(Locations));
 // ----------------------3 objects from Locations---------------------
-new Locations("place", "turkish mosque ", "turkey", "The Hagia Sophia has just opened to receive Sunni Muslim worshippers for the first time since 1931.", 34122, "Sultan Ahmet, Atmeydan", "../img/places1.jpg", new Date("Fri Dec 18 2015 10:40:57"));
+new Locations("place", "turkish mosque ", "turkey", "The Hagia Sophia has just opened to receive Sunni Muslim worshippers for the first time since 1931.", 34122, "Sultan Ahmet, Atmeydan", "../img/places1.jpg", new Date("Fri Jan 18 2015 13:30:50"));
 // console.log(myTravels)
 new Locations("place", "Eiffel Tower", "Paris", "The Eiffel Tower is 1,063 feet (324 meters) tall, including the antenna at the top. Without the antenna, it is 984 feet 300 m.", 75007, "Champ de Mars, 5 Avenue Anatole France", "../img/places3.jpg", new Date("Fri Jan 08 2013 12:44:57"));
 new Locations("place", "time Square", "new york", "Times Square is a major commercial intersection, tourist destination, entertainment center, and neighborhood in the Midtown Manhattan section of New York City", 10036, "Manhattan, NY ", "../img/places4.jpg", new Date("Fri Feb 28 2012 07:44:57"));
@@ -131,6 +131,7 @@ function sorting_asc() {
         var d = new Date(b.event_date);
         return c - d;
     });
+    console.log(myTravels);
     var content = "";
     myTravels.forEach(function (travel) { return content += createCard(travel); });
     document.querySelector("[data-meta=\"entry\"]").innerHTML = content;
@@ -165,12 +166,14 @@ function search() {
     }
     if (newMyTravels == "") {
         document.querySelector("[data-meta=\"entry\"]").innerHTML = "";
-        document.getElementById("contact").innerHTML = "<h1>Sorry nothing Found !</h1>";
+        document.getElementById("error").innerHTML = "<h1>Sorry nothing Found !</h1>";
     }
     else {
         var content = "";
+        document.getElementById("error").innerHTML = "";
         newMyTravels.forEach(function (travel) { return content += createCard(travel); });
         document.querySelector("[data-meta=\"entry\"]").innerHTML = content;
+        // document.getElementById("contact").innerHTML;
         myAllFunc();
         document.getElementById("contact").innerHTML;
     }

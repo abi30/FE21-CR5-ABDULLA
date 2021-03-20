@@ -47,7 +47,17 @@ body{
   
 
 
-  
+  #error {
+    margin-top: 2rem;
+    border-radius: 5px;
+      text-align: center;
+      background-color: #ee9f0c;
+      color: white;
+    }
+    #error h1 {
+      text-align: center;
+      color: white;
+    }
   
   
   
