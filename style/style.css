@@ -1,3 +1,13 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+
+body{
+  background-color: #ffffff;
+  font-family: "Poppins",sans-serif;
+
+}
+
 #contact {
     margin-top: 2rem;
     border-radius: 5px;
@@ -20,18 +30,25 @@
 
   .own_contianer{
     margin: 2rem 0rem;
-
-    /* background-color: #ae9b78; */
   }
   
   
   
   
+  .own_card{
+    font-weight:600;
+    background-color: #ffffff;
+    border-radius: 4px;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 4px 5px rgba(0 ,0, 0,0.3);
+
+  }
+  
+
+
   
   
-  
-  
-   
   
   
 /*     
@@ -45,7 +62,7 @@
                       }
       } */
   
-      @media only screen and (max-width:480px){
+      @media only screen and (max-width:481px){
                         .own{
                           display:none;
                         }
