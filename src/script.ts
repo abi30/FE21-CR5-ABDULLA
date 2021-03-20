@@ -3,6 +3,8 @@
 
     var myTravels:Array<Locations>=[];
 
+    var newMyTravels:Array<Locations>=[]; 
+
     // ##################### MAIN CLASS OR LOCATION CLASS #########################
 
 
@@ -119,7 +121,7 @@
     // ----------------------3 objects from Restaurants---------------------
     
 
-    new Restaurants("Restaurant","Medusa Restaurant & Club","Viennese","Vinna","there’s anybody who’s fit to navigate Vienna’s approximately 4,000 restaurants, it’s Lukas Hittinger",1010,"Neuer Markt 8","../img/restaurants1.jpg",new Date("Fri Jan 05 2021 09:44:57"),"http://www.medusarestaurant.at","+43 676 3094176");
+    new Restaurants("Restaurant","Medusa Restaurant & Club","Viennese","Vienna","there’s anybody who’s fit to navigate Vienna’s approximately 4,000 restaurants, it’s Lukas Hittinger",1010,"Neuer Markt 8","../img/restaurants1.jpg",new Date("Fri Jan 05 2021 09:44:57"),"http://www.medusarestaurant.at","+43 676 3094176");
 
     new Restaurants("Restaurant","Eater At Home","Chinese","Chaina","When traveling through China, you may have trouble finding your most beloved beverages from back home,",43280,"Haizingergasse 13,","../img/restaurants4.jpg",new Date("Fri Dec 11 2014 21:44:57"),"https://www.eater.com/contact","+43654321");
 
@@ -227,19 +229,35 @@
 
     function sorting_asc() :void{
      
+        if(newMyTravels!=""){
 
-   
-         myTravels.sort(function(a:any, b:any){
-             var c:any= new Date(a.event_date);
-             var d:any= new Date(b.event_date);
-             return c - d;
-         });
+            newMyTravels.sort(function(a:any,b:any){
+                var c:any= new Date(a.event_date);
+                var d:any= new Date(b.event_date);
+                return c - d;
+            });
+            // console.log(newMyTravels);
+
+            var content:string="";
+            newMyTravels.forEach(travel=>content+=createCard(travel));
+            document.querySelector(`[data-meta="entry"]`).innerHTML=content;
+
+        }else{
+
+                myTravels.sort(function(a:any, b:any){
+                var c:any= new Date(a.event_date);
+                var d:any= new Date(b.event_date);
+                return c - d;
+             });
     
          console.log(myTravels);
 
-        var content:string="";
-        myTravels.forEach(travel=>content+=createCard(travel));
-        document.querySelector(`[data-meta="entry"]`).innerHTML=content;
+            var content:string="";
+            myTravels.forEach(travel=>content+=createCard(travel));
+            document.querySelector(`[data-meta="entry"]`).innerHTML=content;
+        }
+   
+        
 
      
         
@@ -251,37 +269,48 @@
      // ###################### Descending sorting #########################
     function sorting_desc() :void{
         
-
+        if(newMyTravels!=""){
     
-        myTravels.sort(function(a:any, b:any){
+            newMyTravels.sort(function(a:any, b:any){
+            var c:any= new Date(b.event_date);
+            var d:any= new Date(a.event_date);
+            return c - d;
+        });
+        var content:string="";
+        newMyTravels.forEach(travel=>content+=createCard(travel));
+        document.querySelector(`[data-meta="entry"]`).innerHTML=content;
+        }
+
+         else{
+
+            myTravels.sort(function(a:any, b:any){
             var c:any= new Date(b.event_date);
             var d:any= new Date(a.event_date);
             return c - d;
         });
     
 
-    var content:string="";
-    myTravels.forEach(travel=>content+=createCard(travel));
-    document.querySelector(`[data-meta="entry"]`).innerHTML=content;
+        var content:string="";
+        myTravels.forEach(travel=>content+=createCard(travel));
+        document.querySelector(`[data-meta="entry"]`).innerHTML=content;
 
+    }  
 
     
     myAllFunc();
 
     
-    console.log("rerfee")
+    // console.log("Hello")
 
-        
-    
     }
 
     // ###################### extra search function #########################
 
     function search():any{
         
-        let newMyTravels:Array<Locations>=[];   
+        //  newMyTravels="";
         var searchText=document.getElementById('search_text')?.value;
-
+        newMyTravels=[];
         for(let i=0; i<myTravels.length;i++)
         {
             var entireText1=myTravels[i].placeName;
@@ -290,10 +319,13 @@
 
 
         if((entireText1.toLowerCase().indexOf(searchText.toLowerCase()) > -1)|| (entireText2.toLowerCase().indexOf(searchText.toLowerCase()) > -1) ||   (entireText3.toLowerCase().indexOf(searchText.toLowerCase()) > -1)){
-
+            
+        // newMyTravels="";
         newMyTravels.push(myTravels[i]);
            // console.log("well done");
         }
+
+        
 
         }
 
@@ -317,8 +349,9 @@
                 document.getElementById("contact").innerHTML;
 
                 }
-            
 
+            
+        
 
     } 
 
