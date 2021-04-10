@@ -163,10 +163,10 @@
 
     function createCard(travel:Locations):string{
     
-        var allVal:string=`<div class="col">
+        var allVal:string=`<div class="col card">
 
         <div class="card h-100 own_card " style="background-color:">
-            <img class="img-fluid own" src="img/${travel.img}" class="card-img-top" alt="...">
+            <img class="img-fluid own card-img-top" src="img/${travel.img}"  alt="...">
 
 
             <div class="card-body text-center">
@@ -179,8 +179,9 @@
 
         allVal+=`
             <p class="card-text" data-meta="display" data-id="${travel.id}">${travel.article}</p>
-            <button type="button" class="btn btn-outline-success"data-meta="button" data-id="${travel.id}" >info</button>
+            
         </div> 
+        <div class="card-footer infofooter"><button type="button" class="btn  btn-outline-success"data-meta="button" data-id="${travel.id}" >info</button></div>
 
         <div class="card-footer">
             <small class="text-muted">Time&Date : ${(travel as Events).event_date}<br/></small>`;

@@ -97,11 +97,11 @@ document.querySelector("[data-meta=\"entry\"]").innerHTML = content;
 // ###################### myAllFunc #########################
 myAllFunc();
 function createCard(travel) {
-    var allVal = "<div class=\"col\">\n\n        <div class=\"card h-100 own_card \" style=\"background-color:\">\n            <img class=\"img-fluid own\" src=\"img/" + travel.img + "\" class=\"card-img-top\" alt=\"...\">\n\n\n            <div class=\"card-body text-center\">\n            <h2 class=\"card-title\">" + travel.place_type + "</h2>";
+    var allVal = "<div class=\"col card\">\n\n        <div class=\"card h-100 own_card \" style=\"background-color:\">\n            <img class=\"img-fluid own card-img-top\" src=\"img/" + travel.img + "\"  alt=\"...\">\n\n\n            <div class=\"card-body text-center\">\n            <h2 class=\"card-title\">" + travel.place_type + "</h2>";
     if (travel instanceof Restaurants) {
         allVal += "<h5 class=\"list-group-item\"><b>origin:</b>" + travel.res_type + "</h5>";
     }
-    allVal += "\n            <p class=\"card-text\" data-meta=\"display\" data-id=\"" + travel.id + "\">" + travel.article + "</p>\n            <button type=\"button\" class=\"btn btn-outline-success\"data-meta=\"button\" data-id=\"" + travel.id + "\" >info</button>\n        </div> \n\n        <div class=\"card-footer\">\n            <small class=\"text-muted\">Time&Date : " + travel.event_date + "<br/></small>";
+    allVal += "\n            <p class=\"card-text\" data-meta=\"display\" data-id=\"" + travel.id + "\">" + travel.article + "</p>\n            \n        </div> \n        <div class=\"card-footer infofooter\"><button type=\"button\" class=\"btn  btn-outline-success\"data-meta=\"button\" data-id=\"" + travel.id + "\" >info</button></div>\n\n        <div class=\"card-footer\">\n            <small class=\"text-muted\">Time&Date : " + travel.event_date + "<br/></small>";
     if (travel instanceof Events) {
         allVal += " <small class=\"text-muted\">price : " + travel.ticket_price + " \u20AC </small>";
     }
